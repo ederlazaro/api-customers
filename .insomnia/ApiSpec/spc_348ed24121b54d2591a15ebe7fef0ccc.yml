@@ -1,0 +1,164 @@
+_id: spc_348ed24121b54d2591a15ebe7fef0ccc
+type: ApiSpec
+parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
+modified: 1629937940208
+created: 1629916767364
+fileName: customers
+contents: |-
+  swagger: '2.0'
+  info:
+    title: Customers
+    description: Customers API
+    version: '0.1'
+    contact:
+      email: ederlazaro@outlook.com
+  schemes:
+    - http
+  host: localhost:5000
+  basePath: /
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  paths:
+    /customers:
+      get:
+        summary: Returns a list of customers
+        description: Returns a list of customers
+        tags:
+          - customers
+        operationId: getCustomers
+        parameters:
+          - name: name
+            in: query
+            description: First or Last name
+            required: false
+            type: string
+        responses:
+          '200':
+            description: Ok
+            schema:
+              type: array
+              items:
+                $ref: '#/definitions/Customer'
+            examples:
+              application/json: [
+                {
+                  "id": 1,
+                  "document": 45400037,
+                  "first_name": "Oscar",
+                  "last_name": "Lazaro",
+                  "email": "ederlazaro@outlook.com"
+                },
+                {
+                  "id": 2,
+                  "document": 45514541,
+                  "first_name": "Claudia",
+                  "last_name": "Caipo",
+                  "email": "claudiacaipo@outlook.com"
+                }
+              ]
+          '400':
+            $ref: '#/responses/BadRequest'
+          '403':
+            $ref: '#/responses/Unauthorized'
+          '404':
+            $ref: '#/responses/NotFound'
+          default:
+            description: Unexpected error
+    '/customers/{id}':
+      get:
+        summary: Returns one customer by id
+        description: Returns one customer by id
+        tags:
+          - customers
+        operationId: getCustomersById
+        parameters:
+          - name: id
+            in: path
+            description: Customers ID
+            required: true
+            type: integer
+        responses:
+          '200':
+            description: Ok
+            schema:
+              $ref: '#/definitions/Customer'
+            examples:
+              application/json: {
+                  "id": 1,
+                  "document": 45400037,
+                  "first_name": "Oscar",
+                  "last_name": "Lazaro",
+                  "email": "ederlazaro@outlook.com"
+                }
+          '400':
+            $ref: '#/responses/BadRequest'
+          '403':
+            $ref: '#/responses/Unauthorized'
+          '404':
+            $ref: '#/responses/NotFound'
+          default:
+            description: Unexpected error
+  # Descriptions of common responses
+  responses:
+    BadRequest:
+      description: The request the client made is incorrect or corrupt
+      schema:
+        $ref: '#/definitions/Error'
+    NotFound:
+      description: The specified resource was not found
+    Unauthorized:
+      description: Not authorizated or invalid token.
+  definitions:
+    Customer:
+      properties:
+        id: 
+          type: integer
+        document:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        address:
+          $ref: '#/definitions/Address'
+      required:  
+        - document
+        - firstName
+        - lastName
+    Address:
+      properties:
+        line: 
+          type: string
+        reference:
+          type: string
+        country_district:
+          type: string
+        country_province:
+          type: string
+      required:  
+        - line
+        - reference
+    # Schema for error response body
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+  securityDefinitions:
+     # X-API-Key: abcdef12345
+     APIKeyHeader:
+       type: apiKey
+       in: header
+       name: x-access-token
+  security:
+    - APIKeyHeader: []
+contentType: yaml

@@ -1,0 +1,21 @@
+_id: getCustomersById
+type: Request
+parentId: fld_wrk_21331ceb68444e1095254fc6e8d79fe170ef1c72
+modified: 1629927383909
+created: 1629927383909
+url: "{{ base_url }}/customers/{{ id }}"
+name: Returns one customer by id
+description: Returns one customer by id
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1629927383909
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
