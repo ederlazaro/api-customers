@@ -1,20 +1,23 @@
-_id: getCustomers
+_id: req_wrk_21331ceb68444e1095254fc6e8d79fe1a0f8404a
 type: Request
-parentId: fld_wrk_21331ceb68444e1095254fc6e8d79fe170ef1c72
-modified: 1629927383916
-created: 1629927383916
+parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
+modified: 1630213267629
+created: 1630213267629
 url: "{{ base_url }}/customers"
 name: Returns a list of customers
-description: Returns a list of customers
+description: ""
 method: GET
 body: {}
 parameters:
   - name: name
     disabled: true
     value: string
-headers: []
+headers:
+  - name: x-access-token
+    disabled: false
+    value: "{{ xAccessToken }}"
 authentication: {}
-metaSortKey: -1629927383916
+metaSortKey: -1630213267629
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

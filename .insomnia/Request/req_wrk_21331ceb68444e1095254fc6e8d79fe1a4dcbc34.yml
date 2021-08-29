@@ -1,17 +1,20 @@
-_id: getCustomersById
+_id: req_wrk_21331ceb68444e1095254fc6e8d79fe1a4dcbc34
 type: Request
-parentId: fld_wrk_21331ceb68444e1095254fc6e8d79fe170ef1c72
-modified: 1629927383909
-created: 1629927383909
+parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
+modified: 1630213267627
+created: 1630213267627
 url: "{{ base_url }}/customers/{{ id }}"
 name: Returns one customer by id
-description: Returns one customer by id
+description: ""
 method: GET
 body: {}
 parameters: []
-headers: []
+headers:
+  - name: x-access-token
+    disabled: false
+    value: "{{ xAccessToken }}"
 authentication: {}
-metaSortKey: -1629927383909
+metaSortKey: -1630213267627
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

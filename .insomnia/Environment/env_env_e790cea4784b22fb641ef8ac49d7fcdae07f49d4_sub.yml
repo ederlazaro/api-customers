@@ -1,14 +1,21 @@
 _id: env_env_e790cea4784b22fb641ef8ac49d7fcdae07f49d4_sub
 type: Environment
 parentId: env_e790cea4784b22fb641ef8ac49d7fcdae07f49d4
-modified: 1629936041956
+modified: 1630214531290
 created: 1629919254597
 name: Develop
 data:
-  base_path: /
   scheme: http
-  host: localhost:5000
-dataPropertyOrder: null
+  base_path: /
+  host: localhost:3000
+  xAccessToken: xAccessToken
+  x-access-token: x-access-token
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - x-access-token
 color: null
 isPrivate: false
 metaSortKey: 1629919254597
