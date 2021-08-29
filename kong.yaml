@@ -1,0 +1,35 @@
+_format_version: "1.1"
+services:
+  - name: customer
+    protocol: http
+    host: customer
+    port: 3000
+    path: /
+    plugins: []
+    routes:
+      - tags:
+          - OAS3_import
+        name: customer-getCustomers
+        methods:
+          - GET
+        paths:
+          - /customers$
+        strip_path: false
+      - tags:
+          - OAS3_import
+        name: customer-getCustomersById
+        methods:
+          - GET
+        paths:
+          - /customers/(?<id>[^\/\s]+)$
+        strip_path: false
+    tags:
+      - OAS3_import
+upstreams:
+  - name: customer
+    targets:
+      - target: api-dev.belcorp.biz:3000
+        tags:
+          - OAS3_import
+    tags:
+      - OAS3_import
