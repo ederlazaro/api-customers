@@ -1,13 +1,13 @@
 _id: spc_348ed24121b54d2591a15ebe7fef0ccc
 type: ApiSpec
 parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
-modified: 1630214545375
+modified: 1630215368173
 created: 1629916767364
-fileName: customers
+fileName: customers.yaml
 contents: |
   openapi: "3.0.0"
   info:
-    version: 1.0.1
+    version: 1.0.0
     title: customer
     description: Customers API
     license:
@@ -15,10 +15,8 @@ contents: |
     contact:
       email: ederlazaro@outlook.com
   servers:
-    - url: http://localhost:3000/
+    - url: http://api-dev.belcorp.biz:3000/
       description: Development server
-  security:
-  - APIKeyHeader: []
   paths:
     /customers:
       get:
@@ -168,9 +166,4 @@ contents: |
       Unauthorized:
         description: Not authorizated or invalid token.
         content: {}
-    securitySchemes:
-      APIKeyHeader:
-        type: apiKey
-        name: x-access-token
-        in: header
 contentType: yaml
