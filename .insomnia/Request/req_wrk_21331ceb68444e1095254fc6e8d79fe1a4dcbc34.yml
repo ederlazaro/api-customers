@@ -1,7 +1,7 @@
 _id: req_wrk_21331ceb68444e1095254fc6e8d79fe1a4dcbc34
 type: Request
 parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
-modified: 1630213267627
+modified: 1630215660459
 created: 1630213267627
 url: "{{ base_url }}/customers/{{ id }}"
 name: Returns one customer by id
@@ -9,10 +9,7 @@ description: ""
 method: GET
 body: {}
 parameters: []
-headers:
-  - name: x-access-token
-    disabled: false
-    value: "{{ xAccessToken }}"
+headers: []
 authentication: {}
 metaSortKey: -1630213267627
 isPrivate: false

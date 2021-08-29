@@ -1,7 +1,7 @@
 _id: req_wrk_21331ceb68444e1095254fc6e8d79fe1a0f8404a
 type: Request
 parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
-modified: 1630213267629
+modified: 1630215663784
 created: 1630213267629
 url: "{{ base_url }}/customers"
 name: Returns a list of customers
@@ -12,10 +12,8 @@ parameters:
   - name: name
     disabled: true
     value: string
-headers:
-  - name: x-access-token
-    disabled: false
-    value: "{{ xAccessToken }}"
+    id: pair_cbe3aa82a7cc49f48908c508397115c4
+headers: []
 authentication: {}
 metaSortKey: -1630213267629
 isPrivate: false
