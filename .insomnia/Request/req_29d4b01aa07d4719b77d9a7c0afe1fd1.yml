@@ -1,0 +1,46 @@
+_id: req_29d4b01aa07d4719b77d9a7c0afe1fd1
+type: Request
+parentId: fld_26b915cb5dfc4ffc87dc421fa858b9bc
+modified: 1630218885058
+created: 1630218253136
+url: "{{ _.url_kong_gateway }}/{{ _.workspace_kong }}/services/customers/routes"
+name: Create ruote by service
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "customers-route",
+    	"paths": [
+    		"/customers"
+    	],
+    	"protocols": [
+    		"http", 
+    		"https"
+    	],
+    	"methods": [
+    		"GET"
+    	],
+    	"tags": [
+    		"customers"
+    	]
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_7dd8f9595ff64ff3a03053a3eaea964a
+  - id: pair_abf49fea573d4937866c62da682d1341
+    name: Kong-Admin-Token
+    value: "{{ _.token_kong_admin }}"
+    description: ""
+authentication: {}
+metaSortKey: -1630218253136
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

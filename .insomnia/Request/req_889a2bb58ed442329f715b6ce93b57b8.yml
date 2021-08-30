@@ -1,0 +1,63 @@
+_id: req_889a2bb58ed442329f715b6ce93b57b8
+type: Request
+parentId: fld_26b915cb5dfc4ffc87dc421fa858b9bc
+modified: 1630218892458
+created: 1630218419729
+url: "{{ _.url_kong_gateway }}/{{ _.workspace_kong }}/services/customers/plugins"
+name: Enabled CORS plugin
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "cors",
+    	"config": {
+    		"origins": [
+    			"*"
+    		],
+    		"methods": [
+    			"GET",
+    			"POST",
+    			"PUT",
+    			"OPTIONS"
+    		],
+    		"headers": [
+    			"Accept",
+    			"Accept-Version",
+    			"Content-Length",
+    			"Content-MD5",
+    			"Content-Type",
+    			"Date",
+    			"X-Access-Token",
+    			"api-version"
+    		],
+    		"exposed_headers": [
+    			"*"
+    		],
+    		"credentials": true,
+    		"max_age": 3600,
+    		"preflight_continue": false
+    	},
+    	"tags": [
+    		"customers"
+    	]
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1754957e87f244509172cf1aebda48ec
+  - id: pair_a7e308f5ba8743d9bdeae54a3d1efa28
+    name: Kong-Admin-Token
+    value: "{{ _.token_kong_admin }}"
+    description: ""
+authentication: {}
+metaSortKey: -1630218253086
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

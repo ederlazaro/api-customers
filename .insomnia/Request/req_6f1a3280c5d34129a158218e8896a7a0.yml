@@ -1,0 +1,37 @@
+_id: req_6f1a3280c5d34129a158218e8896a7a0
+type: Request
+parentId: fld_26b915cb5dfc4ffc87dc421fa858b9bc
+modified: 1630218874501
+created: 1630217773291
+url: "{{ _.url_kong_gateway }}/{{ _.workspace_kong }}/services"
+name: Create Service
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "customers",
+    	"url": "http://httpbin.org/anything",
+    	"tags": [
+    		"customers"
+    	]
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_3de8c973f7954e3c92c0501bdebc9780
+  - id: pair_52d1dd720be844b7bb8468a3480ee251
+    name: Kong-Admin-Token
+    value: "{{ _.token_kong_admin }}"
+    description: ""
+authentication: {}
+metaSortKey: -1630218253186
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

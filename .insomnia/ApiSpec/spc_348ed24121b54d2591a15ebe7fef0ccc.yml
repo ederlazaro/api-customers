@@ -1,7 +1,7 @@
 _id: spc_348ed24121b54d2591a15ebe7fef0ccc
 type: ApiSpec
 parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
-modified: 1630216058523
+modified: 1630284175958
 created: 1629916767364
 fileName: customers.yaml
 contents: |
@@ -15,7 +15,7 @@ contents: |
     contact:
       email: ederlazaro@outlook.com
   servers:
-    - url: http://localhost:3000/
+    - url: http://localhost:8000/
       description: Development server
   paths:
     /customers:
@@ -37,20 +37,20 @@ contents: |
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/Customer'
+                  $ref: "#/components/schemas/Customers"
                 example:
-                - id: 1
-                  document: 45400037
-                  first_name: Oscar
-                  last_name: Lazaro
-                  email: ederlazaro@outlook.com
-                - id: 2
-                  document: 45514541
-                  first_name: Claudia
-                  last_name: Caipo
-                  email: claudiacaipo@outlook.com
+                  response: 
+                    value: 
+                      - id: 1
+                        document: 45400037
+                        firstName: "Oscar"
+                        lastName: "Lazaro"
+                        email: "ederlazaro@outlook.com"
+                      - id: 2
+                        document: 45514541
+                        firstName: "Claudia"
+                        lastName: "Caipo"
+                        email: "claudiacaipo@outlook.com"
           '400':
             description: The request the client made is incorrect or corrupt
             content:
@@ -59,13 +59,10 @@ contents: |
                   $ref: '#/components/schemas/Error'
           '403':
             description: Not authorizated or invalid token.
-            content: {}
           '404':
             description: The specified resource was not found
-            content: {}
           default:
             description: Unexpected error
-            content: {}
     /customers/{id}:
       get:
         tags:
@@ -90,9 +87,9 @@ contents: |
                 example:
                   id: 1
                   document: 45400037
-                  first_name: Oscar
-                  last_name: Lazaro
-                  email: ederlazaro@outlook.com
+                  firstName: "Oscar"
+                  lastName: "Lazaro"
+                  email: "ederlazaro@outlook.com"
           '400':
             description: The request the client made is incorrect or corrupt
             content:
@@ -101,13 +98,10 @@ contents: |
                   $ref: '#/components/schemas/Error'
           '403':
             description: Not authorizated or invalid token.
-            content: {}
           '404':
             description: The specified resource was not found
-            content: {}
           default:
             description: Unexpected error
-            content: {}
   components:
     schemas:
       Customer:
@@ -132,7 +126,8 @@ contents: |
       Address:
         required:
         - line
-        - reference
+        - country_district
+        - country_province
         type: object
         properties:
           line:
@@ -143,6 +138,10 @@ contents: |
             type: string
           country_province:
             type: string
+      Customers:
+        type: array
+        items:
+          $ref: "#/components/schemas/Customer"
       Error:
         required:
         - code
@@ -153,6 +152,9 @@ contents: |
             type: string
           message:
             type: string
+        example:
+          code: "001"
+          message: "Internal Error"
     responses:
       BadRequest:
         description: The request the client made is incorrect or corrupt
@@ -162,8 +164,6 @@ contents: |
               $ref: '#/components/schemas/Error'
       NotFound:
         description: The specified resource was not found
-        content: {}
       Unauthorized:
         description: Not authorizated or invalid token.
-        content: {}
 contentType: yaml

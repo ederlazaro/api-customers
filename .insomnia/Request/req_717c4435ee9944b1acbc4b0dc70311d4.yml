@@ -1,0 +1,42 @@
+_id: req_717c4435ee9944b1acbc4b0dc70311d4
+type: Request
+parentId: fld_26b915cb5dfc4ffc87dc421fa858b9bc
+modified: 1630220695892
+created: 1630220631970
+url: "{{ _.url_kong_gateway }}/{{ _.workspace_kong }}/services/customers/plugins"
+name: Enabled Mocking plugin
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "mocking",
+    	"config": {
+    		"api_specification_filename": "customers.yaml",
+    		"random_delay": true,
+    		"max_delay_time": 1,
+    		"min_delay_time": 0.001
+    	},
+    	"tags": [
+    		"customers"
+    	]
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_4a6d6e34bd274b62a21a19c99dc3aa4d
+  - id: pair_049676da371942a6881e63198782d6e7
+    name: Kong-Admin-Token
+    value: "{{ _.token_kong_admin }}"
+    description: ""
+authentication: {}
+metaSortKey: -1630218253036
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

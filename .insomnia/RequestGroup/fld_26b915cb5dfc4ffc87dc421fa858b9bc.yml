@@ -1,0 +1,10 @@
+_id: fld_26b915cb5dfc4ffc87dc421fa858b9bc
+type: RequestGroup
+parentId: wrk_21331ceb68444e1095254fc6e8d79fe1
+modified: 1630217761724
+created: 1630217761724
+name: Kong Manager
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1630217761724
